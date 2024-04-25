@@ -4,8 +4,13 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #ffffffde;
+  /* background-color: #242424; */
+
+  height: 100vh;
+  background-image: url("./public/CookieMonster6.jpg");
+  background-size: cover;
+  background-position: center center;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
