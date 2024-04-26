@@ -1,11 +1,3 @@
-export default function CookieClick() {
-  const handleCookieClick = () => {
-    console.log("Image clicked!");
-  };
-
-  return (
-    <div className="cookieBtn">
-      <img src="/Cookie.png" alt="Image" onClick={handleCookieClick} />
-    </div>
-  );
+export default function CookieClick({ count }) {
+  return <h1> Welcome to my new cookie moster {count} </h1>;
 }
