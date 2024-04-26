@@ -5,7 +5,7 @@ export default function CookieClick() {
 
   return (
     <div className="cookieBtn">
-      <img src="./public/Cookie.png" alt="Image" onClick={handleCookieClick} />
+      <img src="/Cookie.png" alt="Image" onClick={handleCookieClick} />
     </div>
   );
 }
