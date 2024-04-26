@@ -18,6 +18,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* START OF Cookie button */
+
+.cookieBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cookieBtn img {
+  border: none;
+  height: 50%;
+}
+
+.cookieBtn img:hover {
+  transform: scale(1.1);
+}
+
+/* END OF Cookie button */
 a {
   font-weight: 500;
   color: #646cff;
