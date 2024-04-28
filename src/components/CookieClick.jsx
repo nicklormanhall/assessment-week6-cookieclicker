@@ -15,13 +15,12 @@ export default function CookieClick() {
   ];
 
   useEffect(() => {
-    const myInterval = setInterval(() => {
-      addCookie();
-      // }, 1000);
-    }, 1000 / cookiesPerSecond);
+    const interval = setInterval(() => {
+      setCookies((prevCookies) => prevCookies + cookiesPerSecond);
+    }, 1000);
 
     return () => {
-      clearInterval(myInterval);
+      clearInterval(interval);
     };
   }, [cookiesPerSecond]);
 
@@ -48,17 +47,24 @@ export default function CookieClick() {
         <img src="/Cookie.png" alt="Image" onClick={addCookie} />
       </div>
       <div className="buyUpgrades">
-        {upgradeItems.map((upgrade, index) => (
-          <button
-            key={index}
-            onClick={() => buyUpgrade(upgrade.cps, upgrade.cost)}
-            disabled={cookies < upgrade.cost}
-          >
-            {cookies < upgrade.cost
-              ? `NOT AVAILABLE - you need ${upgrade.cost - cookies} cookies`
-              : `Buy ${upgrade.item} for ${upgrade.cost}`}
-          </button>
-        ))}
+        {upgradeItems.map((upgrade, index) => {
+          if (cookies < upgrade.cost) {
+            return (
+              <button key={index} disabled>
+                NOT AVAILABLE - you need {upgrade.cost - cookies} cookies
+              </button>
+            );
+          } else {
+            return (
+              <button
+                key={index}
+                onClick={() => buyUpgrade(upgrade.cps, upgrade.cost)}
+              >
+                Buy {upgrade.item} for {upgrade.cost}
+              </button>
+            );
+          }
+        })}
       </div>
     </>
   );
